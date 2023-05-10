@@ -21,6 +21,9 @@ import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 
 import org.openqa.selenium.Cookie;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @TestMethodOrder(OrderAnnotation.class)
 public class AllureTest extends TestBase {
 
@@ -126,9 +129,14 @@ public class AllureTest extends TestBase {
     void AddingStepsTest() {
 
 
-        AddingStepsRequestModel.ListUsersData addingTestCaseBody = new AddingStepsRequestModel.ListUsersData(); // Почему тут подчеркивало, если в классе не было "static?"
-        addingTestCaseBody.setName("Открыть страницу сайта");
-        addingTestCaseBody.setSpacing("Страница успешно открыта");
+        AddingStepsRequestModel.ListUsersData step = new AddingStepsRequestModel.ListUsersData();
+        step.setName("Открыть страницу сайта");
+        step.setSpacing("Страница успешно открыта");
+
+        AddingStepsRequestModel addingTestCaseBody = new AddingStepsRequestModel();
+        List<AddingStepsRequestModel.ListUsersData> steps = new ArrayList<>();
+        steps.add(step);
+        addingTestCaseBody.setSteps(steps);
 
         String addingTestCaseUrl = format("api/rs/testcase/%s/scenario", testCasesId);
 
@@ -219,11 +227,13 @@ public class AllureTest extends TestBase {
     void AddingTagTest() {
 
 
-      /*AddingTegRequestModel addingTegBody = new AddingTegRequestModel();
-        addingTegBody.setName("Smouk");
-        addingTegBody.setId(1041);  - так не работает*/
+        AddingTegRequestModel tag = new AddingTegRequestModel();
+        tag.setName("Smouk");
+        tag.setId(1041);
+        List<AddingTegRequestModel> tags = new ArrayList<>();
+        tags.add(tag);
 
-      //  String addingTegBody = format("[{"Name": Smouk, "Id": 1041}]"); почему так не работат..
+        //  String addingTegBody = format("[{"Name": Smouk, "Id": 1041}]"); почему так не работат..
 
         name = "Smouk";
         id = "1041";
@@ -244,13 +254,13 @@ public class AllureTest extends TestBase {
                     .contentType("application/json;charset=UTF-8")
                     .body(addingTegBody)
                     .when()
-                    .post("api/rs/testcase/18632/tag")
-                    //.post(addingTegCaseUrl)
+                    //.post("api/rs/testcase/18632/tag")
+                    .post(addingTegCaseUrl)
                     .then()
                     .log().status()
                     .log().body()
                     .statusCode(200)
-                    .extract().as(AddingTegResponseModel.class); // как сделать модель со странным массивом?
+                    .extract().as(AddingTegResponseModel[].class); // как сделать модель со странным массивом?
 
         });
 

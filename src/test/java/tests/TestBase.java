@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeAll;
 public class TestBase {
 
     public static String projectId = "2251",
-            allureTestOpsSession = "90466b95-f76d-4fce-8990-b579c990d269",
+            allureTestOpsSession = "27f59929-9be2-4471-a95d-7b80bbe58405",
             token = "c4e031d1-3399-4597-b35a-36215173d8ce";
     public static Integer testCasesId;
     public static String formTestCaseUrl; // почему без этого ошибка при обращении к перемнным?
