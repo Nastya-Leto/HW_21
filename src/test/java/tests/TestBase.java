@@ -9,14 +9,19 @@ import org.junit.jupiter.api.BeforeAll;
 public class TestBase {
 
     public static String projectId = "2251",
-            allureTestOpsSession = "a212d4fd-ea85-4311-9911-a88f7f6a39e7",
+            allureTestOpsSession = "90466b95-f76d-4fce-8990-b579c990d269",
             token = "c4e031d1-3399-4597-b35a-36215173d8ce";
     public static Integer testCasesId;
+    public static String formTestCaseUrl; // почему без этого ошибка при обращении к перемнным?
 
     Faker faker = new Faker();
     String testCaseName = faker.name().fullName();
     public static CreateTestCaseBodyModel testCaseBody = new CreateTestCaseBodyModel();
+    public static String guotes (String s) {
+        return "\"" + s + "\"";
+    }
 
+    public static String name, id;
 
     @BeforeAll
     static void setUp() {
