@@ -16,3 +16,4 @@ ForLearning
 
 ### Logs ###
 *.log
+/src/test/java/ForLearning/
