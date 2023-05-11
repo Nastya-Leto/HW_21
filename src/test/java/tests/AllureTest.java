@@ -85,7 +85,7 @@ public class AllureTest extends TestBase {
         String formTestCaseUrl = format("api/rs/testcase/%s", testCasesId);
 
 
-        step("Изменение имени тест-кейса", () -> {
+        step("Изменение имени тест-кейсика", () -> {
 
             given(requestSpec)
                     .body(testCaseBodyNew)
