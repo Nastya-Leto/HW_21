@@ -25,6 +25,7 @@ import org.openqa.selenium.Cookie;
 import java.util.ArrayList;
 import java.util.List;
 
+@DisplayName("Тестирование тест-кейсов в Allure")
 @TestMethodOrder(OrderAnnotation.class)
 public class AllureTest extends TestBase {
 
