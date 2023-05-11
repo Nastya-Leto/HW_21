@@ -16,7 +16,7 @@ import java.util.Map;
 public class TestBase {
 
     public static String projectId = "2251",
-            allureTestOpsSession = "87676eba-d68b-4aaa-9f46-e1f9cf5d6511",
+            allureTestOpsSession = "57e792c2-aecc-4682-96aa-a3d46acf8143",
             token = "c4e031d1-3399-4597-b35a-36215173d8ce";
     public static Integer testCasesId;
 
