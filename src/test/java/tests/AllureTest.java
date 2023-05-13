@@ -122,7 +122,7 @@ public class AllureTest extends TestBase {
         AddingStepsRequestModel.ListUsersData step = new AddingStepsRequestModel.ListUsersData();
         step.setName("Открыть страницу сайта");
         AddingStepsRequestModel.ListUsersData step1 = new AddingStepsRequestModel.ListUsersData();
-        step.setName("Авторизоваться");// передается как null
+        step1.setName("Авторизоваться");
 
         AddingStepsRequestModel addingTestCaseBody = new AddingStepsRequestModel();
         List<AddingStepsRequestModel.ListUsersData> steps = new ArrayList<>();
@@ -211,7 +211,7 @@ public class AllureTest extends TestBase {
         List<AddingTegRequestModel> tags = new ArrayList<>();
         tags.add(tag);
 
-        name = "Smouk";
+        name = "smouk";
         id = "1041";
 
         String addingTegCaseUrl = format("api/rs/testcase/%s/tag", testCasesId);
@@ -237,10 +237,9 @@ public class AllureTest extends TestBase {
             getWebDriver().manage().addCookie(autorizationCookie);
 
             String testCaseUrl = format("/project/%s/test-cases/%s", projectId, testCasesId);
-            open(testCaseUrl);
 
-            $(".EditableModal").$(byText("Smouk"));
-           // $(".EditableModal").$(byText("Smouk")).shouldBe(exist);
+            open(testCaseUrl);
+            $(".TestCaseOverview__secondary").$(byText("smouk")).shouldBe(exist);
 
         });
     }
