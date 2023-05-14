@@ -23,18 +23,12 @@ import java.util.List;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class AddingStepsResponseModel {
-    private List<ListUsersData> steps;
+
+    String name;
+    Integer stepsCount;
+    boolean hasContent, leaf;
 
 
-    @Data
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    public class ListUsersData {
-
-        private String steps, name;
-        private Integer stepsCount;
-        private boolean hasContent, leaf;
-
-    }
 }
 
 

@@ -142,7 +142,7 @@ public class AllureTest extends TestBase {
                     .post(addingTestCaseUrl)
                     .then()
                     .spec(responseSpec)
-                    .extract().as(CreateTestCaseResponseModel.class);
+                    .extract().as(AddingStepsResponseModel.class);
 
         });
 
